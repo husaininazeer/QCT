@@ -1,0 +1,16 @@
+{
+  "1": {
+    "surah": 1,
+    "ayah": 3,
+    "mutationType": "omission",
+    "mutation": "ملك",
+    "notes": "\"This is the first mutation in the QurCan project\""
+  },
+  "2": {
+    "surah": 1,
+    "ayah": 6,
+    "mutationType": "إشمام",
+    "mutation": "الصراط",
+    "notes": "أول موضع فيها إشمام لقراءة حمزة"
+  }
+}
