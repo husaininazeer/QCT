@@ -1,4 +1,5 @@
-# QCT (QurCan Transcriber)
+
+# QCT (QurCan Transcriber)
 
 Currently not on any domain, but can run locally by running the following commands:
 
