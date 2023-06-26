@@ -7,6 +7,7 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  Button,
 } from '@chakra-ui/react'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -23,7 +24,7 @@ export default function ResultsTable({ data }) {
   return (
     <>
       <TableContainer aria-label="example table">
-        <Table variant="simple" colorScheme="telegram" size="lg">
+        <Table maxWidth="80%" variant="simple" colorScheme="telegram" size="lg">
           <TableCaption>Example QurCan entry from sample data </TableCaption>
           <Thead>
             <Tr>
@@ -50,5 +51,5 @@ export default function ResultsTable({ data }) {
 }
 
 ResultsTable.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.object.isRequired,
 }
