@@ -1,4 +1,3 @@
-
 # QCT (QurCan Transcriber)
 
 Currently not on any domain, but can run locally by running the following commands:
@@ -9,16 +8,18 @@ Currently not on any domain, but can run locally by running the following comman
    a. ensure node has been installed
 4. `npm start`
 
-## TODOs
+## Roadmap/ TODO
 
 - [x] static page to view entries
   - [x] fetch from a db
-  - [ ] styling
 - [ ] functionalities
+  - [x] routing
   - [ ] add new entries
-  - [ ] delete entries
+  - [ ] delete existing entries
+  - [ ] get all existing values (to put into form - where applicable)
   - [ ] keyboard shortcuts for quicker inputs
   - [ ] exporting functionality?
+- [ ] styling
 - [ ] host using AWS?
   - [ ] use RDS for sql server
 - [ ] transition away from json to SQL
