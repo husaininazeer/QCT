@@ -2,10 +2,14 @@ import React from 'react'
 import ResultsTable from '../components/Table'
 import data from '../db.json'
 import { Stack, Heading, Button, Center } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
+import paths from '../paths'
 
 export default function MainTable() {
+  const navigate = useNavigate()
+
   const handleNewEntry = () => {
-    console.log('new entry button pressed')
+    navigate(paths.addNewEntry)
   }
 
   return (

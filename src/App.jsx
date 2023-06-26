@@ -1,12 +1,16 @@
-import MainTable from './Pages/MainTable.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import MainTable from './Pages/MainTable'
+import AddNewEntry from './Pages/AddNewEntry'
+import paths from './paths'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <MainTable></MainTable>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path={paths.mainTable} element={<MainTable />} />
+        <Route exact path={paths.addNewEntry} element={<AddNewEntry />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
