@@ -18,7 +18,13 @@ export default function MainTable() {
         <Heading align="center" color="#012169" fontSize="75px">
           QurCan Transcriber
         </Heading>
-        <Button onClick={handleNewEntry} className="newEntry">
+        <Button
+          display="flex"
+          width="30pc"
+          alignSelf="center"
+          onClick={handleNewEntry}
+          className="newEntry"
+        >
           Add new entry
         </Button>
       </Stack>
