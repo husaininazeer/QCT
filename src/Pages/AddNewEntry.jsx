@@ -1,40 +1,75 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import {
+  AbsoluteCenter,
   Button,
+  Box,
   Divider,
   FormControl,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
   Heading,
-  Input,
   Select,
   Stack,
   Textarea,
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import paths from '../paths'
+import InputField from '../components/Input'
+import styles from './AddNewEntry.scss'
 
 function AddNewEntry() {
   const navigate = useNavigate()
-  const [valuesToAdd, setValuesToAdd] = useState({
-    mutationType: '',
-    mutation: '',
-    notes: '',
-  })
+
+  const stateRef = useRef()
 
   // handlers
   const handleBackPress = () => {
-    navigate(-1)
+    navigate(paths.mainTable)
   }
 
-  const handleTextChange = ({ target: { value, name } }) => {
-    const existingValues = { ...valuesToAdd, [name]: value }
-    setValuesToAdd(existingValues)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(stateRef)
   }
 
-  const handleSubmit = () => {
-    console.log(valuesToAdd)
-  }
+  // making form from scratch because why not!
+
+  const inputProps = [
+    {
+      name: 'surah',
+      type: 'number',
+      placeholder: 'Surah number',
+      label: 'surah',
+      min: 1,
+      max: 114,
+    },
+    {
+      name: 'ayah',
+      type: 'number',
+      placeholder: 'Ayah number',
+      label: 'ayah',
+      min: 1,
+    },
+    {
+      name: 'mutationType',
+      type: 'select',
+      placeholder: 'Enter mutation type here',
+      label: 'Mutation Type',
+    },
+    {
+      name: 'mutation',
+      type: 'select',
+      placeholder: 'Mutation',
+      label: 'mutation',
+    },
+    {
+      name: 'notes',
+      type: 'text',
+      placeholder: 'Notes',
+      label: 'notes',
+    },
+  ]
 
   return (
     <>
@@ -42,50 +77,18 @@ function AddNewEntry() {
         QurCan Transcriber
       </Heading>
       <Button onClick={handleBackPress}> Back to main table </Button>
-      <Stack direction="column" maxWidth="80%">
-        <FormControl variant="floating" id="mutation" isRequired>
-          <FormLabel>Mutation </FormLabel>
-          <Input
-            name="mutation"
-            placeholder="Enter mutation"
-            value={valuesToAdd.mutation}
-            onChange={(e) => handleTextChange(e)}
-          />
-          <FormHelperText>Word that is read differently</FormHelperText>
-        </FormControl>
-        <Divider />
-
-        <FormControl
-          variant="floating"
-          id="mutationType"
-          isRequired
-          // FIXME
-          // invalid={!!valuesToAdd.mutationType.length ? true : undefined}
-        >
-          <FormLabel>Mutation Type</FormLabel>
-          <Input
-            name="mutationType"
-            placeholder="Enter mutation type"
-            value={valuesToAdd.mutationType}
-            onChange={(e) => handleTextChange(e)}
-          />
-          <FormHelperText>Omission, إمالة, Pause</FormHelperText>
-          <FormErrorMessage>Your First name is invalid</FormErrorMessage>
-        </FormControl>
-
-        <FormControl variant="floating" id="notes">
-          <FormLabel>Notes</FormLabel>
-          <Textarea
-            value={valuesToAdd.notes}
-            onChange={handleTextChange}
-            name="notes"
-            placeholder="Enter notes here"
-          ></Textarea>
-        </FormControl>
-        <Button onClick={handleSubmit} width="inherit">
-          Add new entry{' '}
-        </Button>
-      </Stack>
+      <div className="formBox">
+        <form onSubmit={handleSubmit}>
+          {inputProps?.map((inputProp, index) => (
+            <InputField
+              key={index}
+              refer={stateRef}
+              props={inputProp}
+            ></InputField>
+          ))}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </>
   )
 }

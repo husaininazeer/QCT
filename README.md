@@ -8,6 +8,10 @@ Currently not on any domain, but can run locally by running the following comman
    a. ensure node has been installed
 4. `npm start`
 
+## Screenshots
+
+![Main Page](./public/main-page.png)
+
 ## Roadmap/ TODO
 
 - [x] static page to view entries
